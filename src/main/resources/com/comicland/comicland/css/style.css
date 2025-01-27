@@ -1,0 +1,233 @@
+.comic-card {
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+    -fx-background-color: lightblue;
+    -fx-padding: 10;
+    -fx-spacing: 5;
+}
+
+.comic-card:hover {
+    -fx-background-color: lightgreen;
+}
+
+.no-border-scrollpane {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+.title-primary{
+ -fx-font-size: 50;
+ -fx-font-family: Poppins;
+ -fx-font-weight: Bold;
+}
+
+.cart-button{
+fx-padding: 10;
+-fx-background-color: #d1d5db;
+-fx-text-fill: #333;
+-fx-font-size: 18px;
+-fx-border-radius: 10px;
+-fx-background-radius: 5px;
+-fx-font-weight: Bold;
+-fx-cursor: hand;
+}
+
+/* Style for the ToggleButton */
+.toggle-button {
+    -fx-background-color: #d1d5db; /* Light gray background */
+    -fx-border-color: none; /* Border color */
+    -fx-border-width: 1px;
+    -fx-text-fill: #333; /* Text color */
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 10px;
+    -fx-font-family: Poppins;
+    -fx-font-weight: Bold;
+    -fx-cursor: hand;
+}
+
+/* Active button style when selected */
+.toggle-button:selected {
+    -fx-background-color: #0ea5e9; /* Green when selected */
+    -fx-text-fill: #FFFFFF; /* White text when selected */
+}
+
+/* Hover style for the button */
+.toggle-button:hover {
+    -fx-background-color: #0ea5e9; /* Darker gray on hover */
+}
+
+/* Add specific styles to ToggleButtons */
+#bestSellingFilter, #actionFilter, #adventureFilter, #fantasyFilter, #sciFiFilter {
+    -fx-background-color: #d1d5db;
+    -fx-border-color: #none;
+    -fx-border-width: 1px;
+    -fx-text-fill: #333;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 5px;
+}
+
+#bestSellingFilter:selected, #actionFilter:selected, #adventureFilter:selected, #fantasyFilter:selected, #sciFiFilter:selected {
+    -fx-background-color: #0ea5e9;
+    -fx-text-fill: #FFFFFF;
+}
+
+#bestSellingFilter:hover, #actionFilter:hover, #adventureFilter:hover, #fantasyFilter:hover, #sciFiFilter:hover {
+    -fx-background-color: #0ea5e9;
+    -fx-text-fill: #FFFFFF;
+}
+
+/* Cart Window Layout */
+.cart-window {
+    -fx-padding: 20;
+    -fx-background-color: #ffffff;  /* White background */
+    -fx-border-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 5, 5); /* Soft shadow for depth */
+    -fx-min-width: 400px; /* Minimum width for the cart */
+}
+
+/* Title of the Cart Window */
+.cart-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 10;
+    -fx-alignment: center;
+}
+
+/* Cart Items List */
+.cart-items {
+    -fx-spacing: 10;
+    -fx-alignment: center-left;
+}
+
+/* Style for individual cart item rows */
+.cart-item {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333;
+    -fx-padding: 5;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 0 0 1 0;  /* Add a border at the bottom */
+}
+
+/* Style for Quantity and Price fields */
+.cart-item-quantity, .cart-item-price {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333;
+}
+
+/* Buttons for Removing Items from Cart */
+.remove-item-button {
+    -fx-padding: 5 10;
+    -fx-background-color: #dc3545; /* Red background */
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.remove-item-button:hover {
+    -fx-background-color: #c82333;  /* Darker red for hover */
+}
+
+/* Style for Proceed Button (Checkout) */
+.proceed-button {
+    -fx-padding: 12 20;
+    -fx-background-color: #28a745; /* Green background */
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.proceed-button:hover {
+    -fx-background-color: #218838; /* Darker green for hover */
+}
+
+/* Style for Total Price Label */
+.total-price {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-padding: 10;
+    -fx-alignment: center-right;
+}
+
+/* Receipt Window Layout */
+.receipt-window {
+    -fx-padding: 20;
+    -fx-background-color: #ffffff;  /* White background for the receipt */
+    -fx-border-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 5, 5); /* Soft shadow for depth */
+    -fx-min-width: 400px; /* Minimum width for the receipt */
+}
+
+/* Title of the Receipt */
+.receipt-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 10;
+    -fx-alignment: center;
+}
+
+/* Receipt Items List */
+.receipt-items {
+    -fx-spacing: 10;
+    -fx-alignment: center-left;
+}
+
+/* Style for each item in the receipt */
+.receipt-item {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333;
+    -fx-padding: 5;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 0 0 1 0;  /* Add a border at the bottom */
+}
+
+/* Style for Price and Total in Receipt */
+.receipt-item-price, .receipt-total {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+}
+
+/* Style for Total Label */
+.receipt-total-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-padding: 10;
+    -fx-alignment: center-right;
+}
+
+/* Style for the Payment Method Details */
+.payment-method {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333;
+    -fx-padding: 10;
+    -fx-alignment: center-left;
+}
+
+/* Back to Shopping Button */
+.back-to-shopping-button {
+    -fx-padding: 12 20;
+    -fx-background-color: #007bff; /* Blue background */
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.back-to-shopping-button:hover {
+    -fx-background-color: #0056b3; /* Darker blue on hover */
+}
