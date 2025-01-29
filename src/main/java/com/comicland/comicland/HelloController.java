@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import java.util.HashMap;
 import java.util.Map;
+import javafx.application.Platform;
 
 
 public class HelloController {
@@ -326,7 +327,6 @@ public class HelloController {
         }
     }
 
-
     private void generateReceipt(double totalPrice, Stage cartStage) {
         Stage receiptStage = new Stage();
         receiptStage.setTitle("Receipt");
@@ -341,41 +341,51 @@ public class HelloController {
         receiptTitleLabel.setStyle("-fx-font-size: 40px; -fx-font-weight: bold; -fx-text-fill: #333; -fx-font-family: Poppins;");
         receiptLayout.getChildren().add(receiptTitleLabel);
 
+        // Loop through the cart to display items (without reducing stock)
         for (Map.Entry<ComicLandSystem.ComicBook, Integer> entry : cart.entrySet()) {
             ComicLandSystem.ComicBook comic = entry.getKey();
             int quantity = entry.getValue();
+
+            // Display item details in the receipt
             Label itemLabel = new Label(comic.getTitle() + " - " + quantity + " pcs @ ₱" + comic.getPrice() + " each");
             itemLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: #333;");
             receiptLayout.getChildren().add(itemLabel);
         }
 
+        // Total Price
         Label totalLabel = new Label("Total Price: ₱" + totalPrice);
         totalLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333;");
         receiptLayout.getChildren().add(totalLabel);
 
         // Load and display barcode image
-        Image barcodeImage = new Image(getClass().getResource("/images/barcode.png").toExternalForm());  // Assuming the barcode image is in resources/images
+        Image barcodeImage = new Image(getClass().getResource("/images/barcode.png").toExternalForm());
         ImageView barcodeImageView = new ImageView(barcodeImage);
         barcodeImageView.setFitWidth(200);
         barcodeImageView.setPreserveRatio(true);
-
         receiptLayout.getChildren().add(barcodeImageView);
 
+        // Close Button - Exits the application
         Button closeButton = new Button("Close");
-        closeButton.setStyle("-fx-background-color: #0ea5e9; -fx-text-fill: white; -fx-padding: 10 20; -fx-font-weight: Bold; -fx-font-family: Poppins;");
-        closeButton.setOnAction(event -> receiptStage.close());
+        closeButton.setStyle("-fx-cursor: hand; -fx-background-color: #0ea5e9; -fx-text-fill: white; -fx-padding: 10 20; -fx-font-weight: Bold; -fx-font-family: Poppins;");
+        closeButton.setOnAction(event -> Platform.exit());  // Closes the entire application
 
-        receiptLayout.getChildren().add(closeButton);
+        // Button layout
+        HBox buttonLayout = new HBox(10, closeButton);
+        buttonLayout.setAlignment(Pos.CENTER);
+        receiptLayout.getChildren().add(buttonLayout);
 
+        // Scene and Stage setup
         Scene scene = new Scene(receiptLayout, 500, 800);
         receiptStage.setScene(scene);
         receiptStage.show();
 
-        // Clear the cart after showing the receipt
+        // Clear the cart after showing the receipt and closing the cart stage
         cart.clear();
         updateCartButtonText();
-        cartStage.close();  // Close the cart window
+        cartStage.close();  // Close the cart window after generating the receipt
     }
+
+
 
 
     private double calculateTotalPrice() {

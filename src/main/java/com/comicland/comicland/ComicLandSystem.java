@@ -59,13 +59,6 @@ public class ComicLandSystem {
             this.genre = genre;
         }
 
-        public void reduceStock(int quantity) {
-            if (quantity <= stock) {
-                stock -= quantity;
-            } else {
-                System.out.println("Insufficient stock for " + title);
-            }
-        }
 
         // Nested CartItem class
         public class CartItem {
